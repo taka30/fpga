@@ -171,8 +171,8 @@ module average_filter_3x3 # (
     assign o_saxis_tready = 1'b1;
     assign o_maxis_tdata = w_div9_out[7:0];
     assign o_maxis_tvalid = w_line_valid[1];
-    assign o_maxis_tuer = ((r_vcnt_delay == 'd1) && (r_hcnt_delay == 'd0));
-    assign o_maxis_tlast = (r_hcnt_delay == P_IMG_WIDTH-1);
+    assign o_maxis_tuer = ((r_vcnt_delay[2] == 'd1) && (r_hcnt_delay[2] == 'd0));
+    assign o_maxis_tlast = (r_hcnt_delay[2] == P_IMG_WIDTH-1);
 
     // copying in a frame edge.
     frame_edge_process # (
